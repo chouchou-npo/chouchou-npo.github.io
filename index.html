@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NPO法人 Chou·chou（シュシュ）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green:       #4BAD3E;
+    --green-light: #EAF5E8;
+    --green-mid:   #C8E8C3;
+    --green-dark:  #2E7A24;
+    --yellow:      #E8D020;
+    --yellow-light:#FAFADC;
+    --yellow-dark: #5a4e00;
+    --gray:        #666666;
+    --text:        #222222;
+    --text-sub:    #555555;
+    --border:      #e0e0e0;
+    --white:       #ffffff;
+    --bg:          #f8faf7;
+  }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .logo-svg { width: 44px; height: 44px; }
+  .logo-text { font-size: 15px; font-weight: 500; color: var(--gray); line-height: 1.3; }
+  .logo-text small { font-size: 10px; color: #999; display: block; font-weight: 400; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 13px; color: var(--text-sub); text-decoration: none; }
+  .nav-links a:hover { color: var(--green); }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 480px;
+  }
+  .hero-text {
+    padding: 4rem 3rem 3rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--white);
+  }
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--green);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+  h1 em { font-style: normal; color: var(--green); }
+  .hero-sub {
+    font-size: 14px;
+    line-height: 2;
+    color: var(--text-sub);
+    max-width: 400px;
+  }
+  .hero-photo {
+    position: relative;
+    overflow: hidden;
+    background: var(--green-light);
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .hero-photo-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(46, 122, 36, 0.88);
+    padding: 0.75rem 1.25rem;
+  }
+  .hero-photo-caption p { font-size: 12px; color: #fff; margin: 0; line-height: 1.6; }
+  .hero-photo-caption strong { font-size: 14px; font-weight: 500; }
+
+  /* ── BANNER ── */
+  .banner {
+    background: var(--green-light);
+    border-top: 4px solid var(--green);
+    padding: 1.25rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .badge {
+    background: var(--green);
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 5px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .banner-text { font-size: 13px; line-height: 1.7; color: var(--green-dark); }
+  .banner-text strong { font-weight: 500; font-size: 15px; display: block; margin-bottom: 2px; }
+
+  /* ── SECTIONS ── */
+  section { padding: 3rem 3rem; }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--green);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--green-mid);
+  }
+
+  /* ── CARDS ── */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--green);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .card-icon {
+    font-size: 28px;
+    margin-bottom: 0.75rem;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  .card-desc {
+    font-size: 13px;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .about-text {
+    font-size: 14px;
+    line-height: 2;
+    color: var(--text-sub);
+    margin-bottom: 1rem;
+  }
+  .tagline {
+    font-size: 13px;
+    color: var(--green);
+    font-weight: 500;
+    border-left: 3px solid var(--yellow);
+    padding-left: 0.75rem;
+    margin-top: 1.25rem;
+  }
+  .gohan-card {
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .gohan-card-title {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--yellow-dark);
+  }
+  .gohan-card-body {
+    font-size: 13px;
+    color: #7a6a00;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .gohan-link {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--green);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid var(--green-mid);
+    padding-bottom: 1px;
+  }
+  .gohan-link:hover { color: var(--green-dark); }
+
+  /* ── DIVIDER ── */
+  hr { border: none; border-top: 1px solid var(--border); margin: 0 3rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 3rem;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+  .footer-sub { font-size: 12px; color: #999; }
+  .contact-btn {
+    font-size: 14px;
+    background: var(--green);
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .contact-btn:hover { background: var(--green-dark); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-text { padding: 2.5rem 1.5rem 2rem; }
+    h1 { font-size: 26px; }
+    .hero-photo { height: 280px; }
+    .banner { padding: 1rem 1.5rem; flex-wrap: wrap; }
+    section { padding: 2.5rem 1.5rem; }
+    .cards { grid-template-columns: 1fr; gap: 12px; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    hr { margin: 0 1.5rem; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 1.25rem; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo-wrap" href="#">
+    <svg class="logo-svg" viewBox="0 0 566.93 566.93" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#71af42" d="M270.59,230.93c4.02,2.85,11.6,11.52,8.05,24.93-4.66,17.63-16.37,24.13-31.23,31.7-14.86,7.56-50.27,13.93-72.42,0s-39-48.49-31.11-83.94c12.25-55.05,42.59-88.4,67.69-104.08,17.55-10.96,35.5-19.23,46.21-22.49,35.86-10.9,57.96-12.58,83.39-9.09s42,13.04,55.76,23.31c13.51,10.09,18.99,15.34,23.2,31.33,4.27,16.21,1.52,32.52-16.61,45.55-17.23,12.38-49.66,19.73-76.91,25.09-27.26,5.36-44.06,10.37-52.26,14.15-9.92,4.57-11.35,13.53-9.73,18.24"/>
+      <path fill="#fbe700" d="M302.45,236.82c-1.39-9.61,15.01-18.1,27.9-22.32,12.9-4.22,22.76-7.53,37.06-9.04s25.4-3.4,36.14-.22c10.74,3.17,17.62,9.69,19.65,14.89,3.75,9.6,1.03,31.66-8.21,49.01-8.79,16.51-18.05,27.34-39.86,38.41-21.8,11.07-41.33,12.31-55.33,8.96-22.51-5.39-36.46-14.89-36.51-23.9-.06-10.11,3.21-10.8,12.36-17.83s15.92-11.51,16.18-19.63c.23-7.53-8.21-10.22-9.38-18.31Z"/>
+    </svg>
+    <div class="logo-text">
+      NPO法人 Chou·chou
+      <small>シュシュ</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#activities">活動紹介</a></li>
+    <li><a href="#gohan">ごはんとノート</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">NPO法人 Chou·chou — Fukuoka</div>
+    <h1>子どもと家族が、<br>孤立しない<em>地域へ。</em></h1>
+    <p class="hero-sub">
+      福岡市を拠点に、子育て家族への地域アウトリーチと<br>居場所づくりに取り組むNPO法人です。
+    </p>
+  </div>
+  <div class="hero-photo">
+    <!-- ★ここに写真をアップロード：width_800.png を使う -->
+    <img src="width_800.png" alt="代表 宮島篤子">
+    <div class="hero-photo-caption">
+      <p><strong>宮島篤子</strong>　代表理事 ／ 臨床心理士・公認心理師・看護師・4児の母</p>
+    </div>
+  </div>
+</div>
+
+<!-- 委託事業バナー -->
+<div class="banner">
+  <span class="badge">委託事業</span>
+  <div class="banner-text">
+    <strong>福岡市 保育所等訪問支援事業</strong>
+    福岡市より委託を受け、保育所・こども園への専門的巡回支援を実施しています。
+  </div>
+</div>
+
+<!-- 活動内容 -->
+<section id="activities">
+  <div class="section-label">活動内容</div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🏫</div>
+      <div class="card-title">保育所巡回支援</div>
+      <p class="card-desc">福岡市委託事業。保育現場へ専門家が訪問し、子どもと保育者をともに支援します。</p>
+    </div>
+    <div class="card" id="gohan">
+      <div class="card-icon">🍚</div>
+      <div class="card-title">ごはんとノート</div>
+      <p class="card-desc">子どもの居場所・食事・学習支援のコミュニティ事業。一緒にご飯を食べて、学びます。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🤝</div>
+      <div class="card-title">子育て家族アウトリーチ</div>
+      <p class="card-desc">孤立しがちな子育て家族に、地域からつながりを届けます。</p>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- 代表より -->
+<section>
+  <div class="section-label">代表より</div>
+  <div class="about-grid">
+    <div>
+      <h2>地域のつながりが、<br>人を支える。</h2>
+      <p class="about-text">
+        子育て中の家族が「まず話せる場所」があること。それが、すべての出発点だと思っています。専門的な支援だけでなく、ご飯を一緒に食べること、顔見知りができること。そんな当たり前が、誰かの安心になる。
+      </p>
+      <p class="about-text">
+        4人の子を育てながら、臨床心理士・公認心理師・看護師として福岡の地域に根ざして活動しています。
+      </p>
+      <div class="tagline">関係が整うと、人生は動き出す。</div>
+    </div>
+    <div class="gohan-card">
+      <div class="gohan-card-title">🍚 ごはんとノート 再始動</div>
+      <p class="gohan-card-body">
+        2025年8月1日より再スタート。子どもたちの「食べる・学ぶ・つながる」を地域で支える取り組みです。クラウドファンディング実施中。
+      </p>
+      <a class="gohan-link" href="https://syncable.biz/" target="_blank">→ 詳しく見る・応援する</a>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- フッター / お問い合わせ -->
+<footer id="contact">
+  <div>
+    <div class="footer-logo">NPO法人 Chou·chou（シュシュ）</div>
+    <div class="footer-sub">福岡市 ／ chou.chou.fuk@gmail.com</div>
+  </div>
+  <a class="contact-btn" href="mailto:chou.chou.fuk@gmail.com">お問い合わせ</a>
+</footer>
+
+</body>
+</html>
